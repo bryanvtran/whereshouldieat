@@ -1,0 +1,96 @@
+.title.label {
+  display: inline;
+}
+
+input.input-inline {
+  display:inline;
+  max-width: 300px;
+  margin-left: 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #f5f7fa;
+  color: #f5f7fa;
+  line-height: 1;
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+input.button.outline {
+  background: transparent;
+  border-color: #f5f7fa;
+  color: #f5f7fa;
+  margin-top: 5px;
+}
+
+input.button.outline:hover,
+input.button.outline:focus,
+input.button.outline:active {
+  background-color: #f5f7fa;
+  color: #495a67;
+}
+
+.subtitle.snippet {
+  max-width: 60%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.business.title {
+  margin-bottom: 5px;
+}
+
+.small-subtitle {
+  color: #f5f7fa;
+}
+
+.reviews {
+  margin-bottom: 10px;
+}
+
+.categories {
+  margin-bottom: 10px;
+}
+
+.main-img {
+  max-width: 500px;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.contact.subtitle {
+  margin-bottom: 5px;
+}
+
+.container.center {
+  margin: 0 auto;
+}
+
+#next-form {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  input.input-inline {
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .subtitle.snippet {
+    max-width: 85%;
+  }
+
+  .hero.is-fullheight .hero-body > .container {
+    flex-shrink: 1;
+  }
+
+  .main-img {
+    max-width: 250px;
+    height: auto;
+  }
+}

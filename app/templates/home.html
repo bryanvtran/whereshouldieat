@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="columns">
+    <div class="column">
+        {% if result is none %}
+        <p>Don't forget to fill in the blanks.</p>
+        {% elif result %}
+        <p>{{ result }}</p>
+        {% endif %}
+        <form action="." method="POST">
+            <div class="input-group">
+                <h1 class="title label">I feel like <span id='verb'>getting</span></h1>
+                <input placeholder="" id="food" name="text" type="text" class="input-inline" required>
+            </div>
+            <div class="input-group">
+                <h1 class="title label">near</h1>
+                <input type="text" id="location" name="location" class="input-inline" required>
+                <h1 class="title label is-hidden-mobile">.</h1>
+            </div>
+            <div class="input-group">
+                <input type="submit" class="button outline" value="Help me">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+{#<script type="text/javascript" src="{{ url_for('static', filename='js/baffle.js') }}"></script>#}
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

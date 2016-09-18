@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="columns">
+    <div class="column">
+        {% if result is none %}
+        <h1 class="title">
+          No results found.
+        </h1>
+        <h2 class="subtitle">
+            Unfortunately, there are no results found for your search. Please <a href="{{ url_for('home') }}">click here</a> to try again.
+        </h2>
+        {% else %}
+        <h2 class="subtitle">What about</h2>
+        <a href="{{ result.url }}" target="_blank">
+            <h1 class="title business">
+              {{ result.name }}
+            </h1>
+            <div class="reviews">
+                <p class="small-subtitle"><small>{{ result.review_count }} reviews</small></p>
+                <img src="{{ result.rating_img_url }}" alt="{{ result.rating }}" />
+            </div>
+        </a>
+        <h2 class="subtitle categories">
+            Categories:
+            {% for c in result.categories %}
+                {% if loop.last %}
+                    {{ c[0] }}
+                {% else %}
+                    {{ c[0] }},
+                {% endif %}
+            {% endfor %}
+        </h2>
+        <h2 class="subtitle snippet">
+            "{{ result.snippet_text }}"
+            <small><a href="{{ result.url }}" target="_blank">Read more</a></small>
+        </h2>
+        <a href="#">
+            <div class="business-img"></div>
+        </a>
+        <div class="image main-img">
+            <a href="{{ result.url }}"><img src="{{ result.image_url[:-6] ~ 'o.jpg' }}" alt="{{ result.name }}" /></a>
+        </div>
+
+        <h2 class="subtitle contact">
+            Contact info:
+        </h2>
+        <ul>
+            <li>{{ result.cross_streets }}</li>
+            <li>{% for a in result.location.address %} {{a}} {% endfor %}</li>
+            <li>{{ result.location.city }}, {{ result.location.state_code }} {{ result.location.postal_code }}</li>
+            <li>{{ result.display_phone }}</li>
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block foot %}
+<div class="hero-foot">
+  <nav class="tabs">
+    <div class="container center">
+      <ul>
+        <li><a href="{{ url_for('home') }}">Try again?</a></li>
+        {% if result is not none %}
+        <form id="next-form" action="." method="POST">
+          <input placeholder="" id="food" name="text" type="hidden" class="input-inline" value="{{ text }}" required>
+          <input type="hidden" id="location" name="location" class="input-inline" value="{{ location }}" required>
+          <input type="submit" class="button outline" value="Help me">
+        </form>
+        <li><a id="next">Next</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/item.js') }}"></script>
+<script type="text/javascript">
+  console.log({{ test }});
+</script>
+{% endblock %}

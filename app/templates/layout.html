@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Where To Food</title>
+    <meta name="author" content="Bryan Tran">
+    <meta name="description" content="description here">
+    <meta name="keywords" content="keywords,here">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    {% block styles %}
+    {% endblock %}
+  </head>
+  <body>
+
+    <section class="hero is-dark is-bold is-fullheight">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+
+      {% block foot %}
+      {% endblock %}
+    </section>
+
+    <!-- javascript -->
+    {% block javascript %}
+    {% endblock %}
+  </body>
+</html>
