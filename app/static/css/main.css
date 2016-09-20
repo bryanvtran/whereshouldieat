@@ -103,4 +103,8 @@ input.button.outline:active {
     max-width: 250px;
     height: auto;
   }
+
+  .about.subtitle {
+    max-width: 85%;
+  }
 }
