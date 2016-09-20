@@ -35,9 +35,6 @@
             "{{ result.snippet_text }}"
             <small><a href="{{ result.url }}" target="_blank">Read more</a></small>
         </h2>
-        <a href="#">
-            <div class="business-img"></div>
-        </a>
         <div class="image main-img">
             <a href="{{ result.url }}"><img src="{{ result.image_url[:-6] ~ 'o.jpg' }}" alt="{{ result.name }}" /></a>
         </div>
@@ -45,13 +42,16 @@
         <h2 class="subtitle contact">
             Contact info:
         </h2>
-        <ul>
+        <ul class="contact-list">
             <li>{{ result.cross_streets }}</li>
             <li>{% for a in result.location.address %} {{a}} {% endfor %}</li>
             <li>{{ result.location.city }}, {{ result.location.state_code }} {{ result.location.postal_code }}</li>
             <li>{{ result.display_phone }}</li>
         </ul>
         {% endif %}
+        <h2 class="subtitle powered">
+          <small>Powered by <img class="yelp-logo" src="{{ url_for('static', filename='img/yelp-logo.png') }}" alt="yelp" /></small>
+        </h2>
     </div>
 </div>
 {% endblock %}

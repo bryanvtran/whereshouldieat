@@ -58,7 +58,7 @@ input.button.outline:active {
   height: auto;
   overflow: hidden;
   margin: 0 auto;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .contact.subtitle {
@@ -71,6 +71,16 @@ input.button.outline:active {
 
 #next-form {
   display: none;
+}
+
+.contact-list {
+  margin-bottom: 25px;
+}
+
+.yelp-logo {
+  margin-left: 2px;
+  height: 22px;
+  vertical-align: top;
 }
 
 @media only screen and (max-width: 768px) {

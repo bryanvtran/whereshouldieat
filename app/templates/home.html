@@ -26,6 +26,28 @@
 </div>
 {% endblock %}
 
+{% block foot %}
+<div class="hero-foot">
+  <nav class="tabs">
+    <div class="container center">
+      <ul>
+        <li><a href="{{ url_for('home') }}">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-container">
+    <div class="modal-content">
+      <h1>Hello World</h1>
+    </div>
+  </div>
+  <button class="modal-close"></button>
+</div>
+{% endblock %}
+
 {% block javascript %}
 {#<script type="text/javascript" src="{{ url_for('static', filename='js/baffle.js') }}"></script>#}
 <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
