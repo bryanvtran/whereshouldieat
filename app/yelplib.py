@@ -1,15 +1,18 @@
-import io
-import json
+import os
 from yelp.client import Client
 from yelp.oauth1_authenticator import Oauth1Authenticator
 from random import randint
 
 # finds results based on keyword and location
 def search(keyword, location):
-  with io.open('config_secret.json') as cred:
-    creds = json.load(cred)
-    auth = Oauth1Authenticator(**creds)
-    client = Client(auth)
+  auth = Oauth1Authenticator(
+      consumer_key=os.environ['CONSUMER_KEY'],
+      consumer_secret=os.environ['CONSUMER_SECRET'],
+      token=os.environ['TOKEN'],
+      token_secret=os.environ['TOKEN_SECRET']
+  )
+
+  client = Client(auth)
 
   params = {
       'term': keyword,

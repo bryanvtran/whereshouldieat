@@ -2,3 +2,4 @@ app/config_secret.json
 */.DS_Store
 */*/.DS_Store
 venv
+.env
