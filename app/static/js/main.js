@@ -7,21 +7,32 @@ var j = Math.round(Math.random()*(places.length-1));
 document.getElementById('food').placeholder = foods[i];
 document.getElementById('location').placeholder = places[j];
 
+// modal
+function hasClass(el, className) {
+    return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
+}
 
-// initializing baffle
-// var s=["█","▓","▒","░","█","▓","▒","░","█","▓","▒","░","<",">","/"];
-// var text = ["getting", "eating", "drinking", "snacking on", "binging on"];
-//
-// let b = baffle('#verb', {
-//   characters: s
-// });
-//
-// function baff() {
-//   var k = Math.round(Math.random()*(text.length-1));
-//   b.start()
-//   .text(currentText => text[k])
-//   .reveal(1500);
-// }
-//
-//
-// setInterval(baff, 3500);
+function addClass(el, className) {
+    if (el.classList) el.classList.add(className);
+    else if (!hasClass(el, className)) el.className += ' ' + className;
+}
+
+function removeClass(el, className) {
+    if (el.classList) el.classList.remove(className);
+    else el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), '');
+}
+
+document.getElementById('about').addEventListener("click", function() {
+  var target = this.getAttribute('data-target');
+  var html = document.getElementsByTagName('html')[0];
+  addClass(html, 'is-clipped');
+  var target_html = document.querySelector(target);
+  addClass(target_html, 'is-active')
+});
+
+document.getElementsByClassName('modal-close')[0].addEventListener('click', function() {
+  var html = document.getElementsByTagName('html')[0];
+  removeClass(html, 'is-clipped');
+  var target_html = document.querySelector('#about-modal');
+  removeClass(target_html, 'is-active');
+});
